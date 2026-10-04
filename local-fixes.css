@@ -1,0 +1,192 @@
+/* ==========================================================================
+   TheShampooFactory Local Fixes Stylesheet
+   Ensures desktop dropdowns, mobile offcanvas drawer, and Elementor tabs work
+   properly offline and under file:/// protocol.
+   ========================================================================== */
+
+/* 1. Desktop Dropdown Menu */
+[data-responsive="no"] .header-menu-1 .sub-menu {
+  display: block !important;
+}
+
+.header-menu-1 .menu-item-has-children:hover > .sub-menu,
+.header-menu-1 .menu-item-has-children.ct-active > .sub-menu,
+.header-menu-1 .menu-item-has-children:focus-within > .sub-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  display: block !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+/* 2. Mobile Drawer (#offcanvas) */
+body[data-panel*="in"] #offcanvas.ct-panel {
+  display: flex !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+}
+
+#offcanvas.ct-panel:not(.active) {
+  display: none !important;
+}
+
+/* Mobile Submenu Accordion */
+.mobile-menu li.menu-item-has-children.dropdown-active > .sub-menu {
+  display: block !important;
+}
+
+.mobile-menu li.menu-item-has-children:not(.dropdown-active) > .sub-menu {
+  display: none !important;
+}
+
+/* 3. Elementor Nested Tabs */
+.elementor-widget-n-tabs .e-n-tabs-content > [role="tabpanel"].e-active,
+.elementor-widget-n-tabs .e-n-tabs-content > .e-con.e-active,
+.e-n-tabs .e-n-tabs-content > [role="tabpanel"].e-active,
+.e-n-tabs .e-n-tabs-content > .e-con.e-active {
+  display: flex !important;
+}
+
+.elementor-widget-n-tabs .e-n-tabs-content > [role="tabpanel"]:not(.e-active),
+.elementor-widget-n-tabs .e-n-tabs-content > .e-con:not(.e-active),
+.e-n-tabs .e-n-tabs-content > [role="tabpanel"]:not(.e-active),
+.e-n-tabs .e-n-tabs-content > .e-con:not(.e-active) {
+  display: none !important;
+}
+
+/* 4. Cookie Notification Dismissal */
+.cookie-notification,
+[data-period="oneweek"],
+.ct-cookies-modal {
+  display: none !important;
+}
+
+/* 5. Product Image Carousel (Swiper & Elementor) */
+.elementor-widget-image-carousel {
+  position: relative !important;
+}
+
+.elementor-widget-image-carousel .elementor-image-carousel-wrapper {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 6px !important;
+  background-color: #fafafa !important;
+}
+
+.elementor-widget-image-carousel .swiper-slide {
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+.elementor-widget-image-carousel .swiper-slide figure {
+  margin: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.elementor-widget-image-carousel .swiper-slide img.swiper-slide-image {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border-radius: 4px !important;
+  transition: transform 0.4s ease !important;
+}
+
+.elementor-widget-image-carousel .swiper-slide:hover img.swiper-slide-image {
+  transform: scale(1.02) !important;
+}
+
+/* High-Visibility Prev / Next Navigation Arrows */
+.elementor-widget-image-carousel .elementor-swiper-button,
+.elementor-widget-image-carousel .swiper-button-prev,
+.elementor-widget-image-carousel .swiper-button-next {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 44px !important;
+  height: 44px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  color: #1a1a1a !important;
+  border-radius: 50% !important;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 25 !important;
+  opacity: 0.88 !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  user-select: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+.elementor-widget-image-carousel .elementor-swiper-button:hover,
+.elementor-widget-image-carousel .swiper-button-prev:hover,
+.elementor-widget-image-carousel .swiper-button-next:hover {
+  background: #ffffff !important;
+  opacity: 1 !important;
+  transform: translateY(-50%) scale(1.1) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+.elementor-widget-image-carousel .elementor-swiper-button svg,
+.elementor-widget-image-carousel .swiper-button-prev svg,
+.elementor-widget-image-carousel .swiper-button-next svg {
+  fill: #1a1a1a !important;
+  width: 22px !important;
+  height: 22px !important;
+}
+
+.elementor-widget-image-carousel .elementor-swiper-button-prev,
+.elementor-widget-image-carousel .swiper-button-prev {
+  left: 14px !important;
+}
+
+.elementor-widget-image-carousel .elementor-swiper-button-next,
+.elementor-widget-image-carousel .swiper-button-next {
+  right: 14px !important;
+}
+
+/* Elegant Pagination Bullets */
+.elementor-widget-image-carousel .swiper-pagination {
+  position: relative !important;
+  margin-top: 18px !important;
+  bottom: auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+  z-index: 20 !important;
+}
+
+.elementor-widget-image-carousel .swiper-pagination-bullet {
+  background: #cccccc !important;
+  opacity: 0.75 !important;
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  margin: 0 !important;
+}
+
+.elementor-widget-image-carousel .swiper-pagination-bullet:hover {
+  background: #666666 !important;
+  opacity: 1 !important;
+  transform: scale(1.15) !important;
+}
+
+.elementor-widget-image-carousel .swiper-pagination-bullet-active {
+  background: #000000 !important;
+  opacity: 1 !important;
+  width: 26px !important;
+  border-radius: 5px !important;
+}
+
